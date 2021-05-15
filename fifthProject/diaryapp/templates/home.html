@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" />
+  <head>
+    <title>YJ Diary</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        text-align: center;
+        background-color: #d9dfeb;
+        font-family: "Nanum Gothic";
+        letter-spacing: 1px;
+      }
+      header h1 {
+        font-family: "Ubuntu";
+        color: #574b90;
+        letter-spacing: 2px;
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 2em;
+      }
+      a {
+        color: black;
+      }
+      .post {
+        display: inline-block;
+        border: 2px solid #fcfcfc;
+        background-color: #fcfcfc;
+        line-height: 1.5em;
+        width: 30%;
+        height: 10%;
+        margin: 40px 20px;
+        padding: 0px 30px 30px 30px;
+        box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+          0 8px 16px -8px rgba(0, 0, 0, 0.3),
+          0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+      }
+      .post:hover {
+        box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.5),
+          0 8px 16px -8px rgba(0, 0, 0, 1), 0 -6px 16px -6px rgba(0, 0, 0, 0.2);
+      }
+      .post * {
+        background-color: #fcfcfc;
+      }
+      footer p {
+        color: #574b90;
+        font-family: "Ubuntu";
+        line-height: 3em;
+      }
+      #weather {
+        font-size: 4em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Yujin's Diary</h1>
+    </header>
+    {% for post in posts.all %}
+    <a href="{%url 'detail' post.id%}">
+      <div class="post">
+        <p id="weather">{{post.weather}}</p>
+        <h1>{{post.title}}</h1>
+        <p style="color: rgb(185, 185, 185)">{{post.created_at}}</p>
+        <p>{{post.summary}}</p>
+        <p style="color: rgb(151, 151, 151)">...more</p>
+      </div></a
+    >
+    {% endfor %}
+    <br /><br /><br /><br /><br />
+    <footer>
+      <p>&copy; 2021 YUJIN. ALL RIGHTS RESERVED</p>
+    </footer>
+  </body>
+</html>

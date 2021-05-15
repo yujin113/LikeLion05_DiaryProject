@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" />
+  <head>
+    <title>YJ Diary</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        text-align: center;
+        background-color: #d9dfeb;
+        font-family: "Nanum Gothic";
+        letter-spacing: 1px;
+      }
+      header h1 {
+        font-family: "Ubuntu";
+        color: #574b90;
+        letter-spacing: 2px;
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 2em;
+      }
+      .post {
+        display: inline-block;
+        border: 2px solid #fcfcfc;
+        background-color: #fcfcfc;
+        line-height: 1.5em;
+        width: 50%;
+        height: 70%;
+        margin: 0 auto;
+        padding: 0px 50px 50px 50px;
+        margin-top: 40px;
+        box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+          0 8px 16px -8px rgba(0, 0, 0, 0.3),
+          0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+      }
+      .post * {
+        background-color: #fcfcfc;
+      }
+      #weather {
+        font-size: 4em;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'home' %}"><h1>Yujin's Diary</h1></a>
+    </header>
+    <div class="post">
+      <p id="weather">{{diary.weather}}</p>
+      <h1>{{diary.title}}</h1>
+      <p style="color: rgb(185, 185, 185)">{{diary.created_at}}</p>
+      <p>{{diary.body}}</p>
+    </div>
+  </body>
+</html>
