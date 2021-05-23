@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+>
+    <style>
+      * {
+        text-align: center;
+        background-color: #d9dfeb;
+        font-family: "Nanum Gothic";
+        letter-spacing: 1px;
+      }
+      h1 {
+        font-family: "Ubuntu";
+        color: #574b90;
+        letter-spacing: 2px;
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 2em;
+      }
+      form {
+        margin-top: 50px;
+      }
+      input {
+        font-size: 1.2em;
+        border: 1.5px solid gray;
+        background-color: white;
+        border-radius: 10px;
+        line-height: 1.5em;
+        width: 200px;
+        padding: 10px;
+        margin: 5px;
+      }
+      p {
+        margin-top: 50px;
+        color: rgb(190, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Login</h1>
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <p>
+      {% if error %}
+      {{ error }}
+      <br>
+      <br>
+      {% endif %}
+    </p>
+
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %} Username:
+      <br>
+      <input name="username" type="text" value="">
+      <br>
+      Password:
+      <br>
+      <input name="password" type="password" value="">
+      <br>
+      <br>
+      <input type="submit" value="Login">
+    </form>
+
+    {% endblock %}
+  </body>
+</html>

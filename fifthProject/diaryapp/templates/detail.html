@@ -50,13 +50,16 @@
   </head>
   <body>
     <header>
-      <a href="{% url 'home' %}"><h1>Yujin's Diary</h1></a>
+      <h1>Yujin's Diary</h1>
     </header>
+    {% extends 'base.html' %}
+    {% block content %}
     <div class="post">
       <p id="weather">{{diary.weather}}</p>
       <h1>{{diary.title}}</h1>
       <p style="color: rgb(185, 185, 185)">{{diary.created_at}}</p>
       <p>{{diary.body}}</p>
     </div>
+    {% endblock %}
   </body>
 </html>

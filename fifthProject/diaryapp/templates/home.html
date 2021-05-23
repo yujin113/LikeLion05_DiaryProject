@@ -25,6 +25,7 @@
       }
       a {
         color: black;
+        text-decoration: none;
       }
       .post {
         display: inline-block;
@@ -57,9 +58,11 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1>Yujin's Diary</h1>
-    </header>
+      <header>
+          <h1>Yujin's Diary</h1>
+        </header>
+    {% extends 'base.html' %}
+    {% block content %}
     {% for post in posts.all %}
     <a href="{%url 'detail' post.id%}">
       <div class="post">
@@ -75,5 +78,6 @@
     <footer>
       <p>&copy; 2021 YUJIN. ALL RIGHTS RESERVED</p>
     </footer>
+    {% endblock %}
   </body>
 </html>
