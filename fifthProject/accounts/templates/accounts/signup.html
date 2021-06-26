@@ -36,38 +36,44 @@
         margin: 5px;
       }
       p {
-          margin-top: 50px;
-          color: rgb(190, 0, 0);
+        margin-top: 50px;
+        color: rgb(190, 0, 0);
+      }
+      .submit {
+        background-color: #869ec7;
+        color: white;
+        font-size: 1.5em;
+        font-weight: bold;
+        border: none;
+        padding: 13px;
       }
     </style>
   </head>
   <body>
-    <h1>Sign Up!</h1>
-    {% extends 'base.html' %}
-    {% block content %}
+    {% extends 'base.html' %} {% block content %}
+
     <p>
-    {% if error %}
-    {{ error }}
-    <br>
-    <br>
-    {% endif %}
+      {% if error %} {{ error }}
+      <br />
+      <br />
+      {% endif %}
     </p>
 
     <form method="POST" action="{% url 'signup' %}">
       {% csrf_token %} Username:
-      <br>
-      <input name="username" type="text" value="">
-      <br>
+      <br />
+      <input name="username" type="text" value="" />
+      <br />
       Password:
-      <br>
-      <input name="password1" type="password" value="">
-      <br>
+      <br />
+      <input name="password1" type="password" value="" />
+      <br />
       Confirm Password:
-      <br>
-      <input name="password2" type="password" value="">
-      <br>
-      <br>
-      <input type="submit" value="Sign Up!">
+      <br />
+      <input name="password2" type="password" value="" />
+      <br />
+      <br />
+      <input class="submit" type="submit" value="Sign Up!" />
     </form>
 
     {% endblock %}

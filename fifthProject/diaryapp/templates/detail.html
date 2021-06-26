@@ -49,11 +49,7 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1>Yujin's Diary</h1>
-    </header>
-    {% extends 'base.html' %}
-    {% block content %}
+    {% extends 'base.html' %} {% block content %}
     <div class="post">
       <p id="weather">{{diary.weather}}</p>
       <h1>{{diary.title}}</h1>

@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-        href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Ubuntu:wght@300&display=swap"
-        rel="stylesheet"
-        />
-        <style>
-            * {
-                font-family: 'Nanum Gothic';
-            }
-            nav {
-                font-size: 1.5em;
-                padding: 10px;
-                width: 70%;
-                margin: 0 auto;
-                margin-top: 30px;
-                border-radius: 10px;
-            }
-            nav a {
-                color: rgb(71, 71, 71);
-                text-align: center;
-                text-decoration: none;
-                letter-spacing: 2px;
-                margin: 0 50px;
-            }
-            nav span {
-                color: #574b90;
-            }
-        </style>
-    </head>
-    <body>
-        <nav>
-            <a href="{% url 'home' %}">Home</a>
-            {% if user.is_authenticated %}
-            <span>환영합니다. {{user.username}}님!</span>
-            <a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
-            <form id="logout" method="POST" action="{% url 'logout' %}">
-                {% csrf_token %} <input type="hidden">
-            </form>
-            {% else %}
-            <a href="{% url 'signup' %}">Signup</a>
-            <a href="{% url 'login' %}">Login</a>
-            {% endif %}
-        </nav>
-        
-    </body>
+  <meta charset="UTF-8" />
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Nanum Gothic";
+      }
+      nav {
+        font-size: 1.5em;
+        padding: 10px;
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 30px;
+        border-radius: 10px;
+      }
+      nav a {
+        color: rgb(71, 71, 71);
+        text-align: center;
+        text-decoration: none;
+        letter-spacing: 2px;
+        margin: 0 50px;
+      }
+      nav span {
+        color: #574b90;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Yujin's Diary</h1>
+    </header>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      {% if user.is_authenticated %}
+      <span>환영합니다. {{user.username}}님!</span>
+      <a href="javascript:{document.getElementById('logout').submit()}"
+        >Logout</a
+      >
+      <form id="logout" method="POST" action="{% url 'logout' %}">
+        {% csrf_token %} <input type="hidden" />
+      </form>
+      {% else %}
+      <a href="{% url 'signup' %}">Signup</a>
+      <a href="{% url 'login' %}">Login</a>
+      {% endif %}
+    </nav>
+  </body>
 </html>
 
-{% block content %}
-{% endblock %}
+{% block content %} {% endblock %}
