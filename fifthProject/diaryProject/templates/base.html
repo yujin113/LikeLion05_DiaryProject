@@ -26,8 +26,9 @@
         letter-spacing: 2px;
         margin: 0 50px;
       }
-      nav span {
+      nav div {
         color: #574b90;
+        margin-top: 2em;
       }
     </style>
   </head>
@@ -38,14 +39,16 @@
     <nav>
       <a href="{% url 'home' %}">Home</a>
       {% if user.is_authenticated %}
-      <span>환영합니다. {{user.username}}님!</span>
+      <a href="/photo">Album</a>
       <a href="javascript:{document.getElementById('logout').submit()}"
         >Logout</a
       >
+      <div>환영합니다. {{user.username}}님!</div>
       <form id="logout" method="POST" action="{% url 'logout' %}">
         {% csrf_token %} <input type="hidden" />
       </form>
       {% else %}
+      <a>Album</a>
       <a href="{% url 'signup' %}">Signup</a>
       <a href="{% url 'login' %}">Login</a>
       {% endif %}
