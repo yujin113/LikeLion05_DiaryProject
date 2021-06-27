@@ -7,6 +7,7 @@ class Diary(models.Model):
     created_at = models.DateTimeField('작성시간', default = timezone.now)
     weather = models.CharField(max_length=50, default="")
     body = models.TextField()
+    image = models.ImageField(upload_to="diaryImg/", default="")
 
     def __str__(self):
         return self.title

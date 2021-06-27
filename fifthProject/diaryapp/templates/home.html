@@ -55,10 +55,15 @@
       #weather {
         font-size: 4em;
       }
+      .alert {
+        font-size: 1.3em;
+        margin: 10em 0;
+      }
     </style>
   </head>
   <body>
-    {% extends 'base.html' %} {% block content %} {% for post in posts.all %}
+    {% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
+    {% for post in posts.all %}
     <a href="{%url 'detail' post.id%}">
       <div class="post">
         <p id="weather">{{post.weather}}</p>
@@ -68,7 +73,9 @@
         <p style="color: rgb(151, 151, 151)">...more</p>
       </div></a
     >
-    {% endfor %}
+    {% endfor %} {% else %}
+    <p class="alert">로그인 후 볼 수 있습니다.</p>
+    {% endif %}
     <br /><br /><br /><br /><br />
     <footer>
       <p>&copy; 2021 YUJIN. ALL RIGHTS RESERVED</p>
